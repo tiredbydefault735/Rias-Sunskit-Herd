@@ -1,3 +1,48 @@
+# ---------------------------------------------------------------
+# project info
+# ---------------------------------------------------------------
+[project]
+name = "rias-sunskit-herd"
+version = "0.1.0"
+description = "A cosy herding game set in the world of Arachfara"
+readme = "README.md"
+authors = [{ name = "tired_by_default/tiredbydefault735" }]
+requires-python = ">=3.13"
+
+dependencies = []
+
+
+# ---------------------------------------------------------------
+# tools
+# ---------------------------------------------------------------
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "ruff",
+]
+
+
+# ---------------------------------------------------------------
+# pytest
+# ---------------------------------------------------------------
 [tool.pytest.ini_options]
-pythonpath = ["."]
+pythonpath = ["."]      # lets tests do `from core.x import y`
 testpaths = ["tests"]
+
+
+
+# ---------------------------------------------------------------
+# ruff
+# ---------------------------------------------------------------
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = [
+    "E",    # style errors
+    "F",    # real bugs: unused imports/variables, undefined names
+    "I",    # import sorting
+    "B",    # common bug patterns (e.g. mutable default arguments)
+    "SIM",  # "this could be simpler" hints (KISS!)
+]
